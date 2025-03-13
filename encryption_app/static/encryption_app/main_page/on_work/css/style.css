@@ -1,0 +1,24 @@
+div.onwork_area {
+    display: flex;
+    justify-content: center;        
+    align-items: center; 
+
+    min-height: 100vh; 
+
+    background-color: #f0f0f0;
+}
+
+/* Работает чрезе id */
+#onWorkText {
+    font-size: 24px;  
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;     
+                 
+    padding: 20px;
+    border: 2px dashed #999;         
+    border-radius: 10px;
+
+    color: #666;   
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}

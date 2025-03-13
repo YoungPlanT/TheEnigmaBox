@@ -1,0 +1,38 @@
+.method-list,
+.alphabet-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 0;
+    margin: 0;
+    list-style: none;   
+}
+
+.method-item,
+.alphabet-item {
+    background-color: var(--menu-background-color);
+    border: 1px solid #ddd;        
+    border-radius: 8px;            
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; 
+    padding: 12px 15px;            
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08); 
+    font-weight: 500;             
+    color: var(--text-color);
+}
+
+.method-item:hover,
+.alphabet-item:hover {
+    background-color: var(--menu-hover-color);
+    transform: scale(1.03);      
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.method-item.selected,
+.alphabet-item.selected {
+    background-color: var(--menu-selected-color);
+    color: white;
+    font-weight: bold;           
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}

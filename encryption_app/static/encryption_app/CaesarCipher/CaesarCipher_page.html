@@ -1,0 +1,59 @@
+<h1 class="title">Шифр Цезаря</h1>
+
+<div class="input_area">
+    <div class="message_input_area">
+        <label class="title_input" for="messageInput">Введите сообщение:</label>
+        <input type="text" id="messageInput">
+    </div>
+    <div class="key_input_area">
+        <label class="title_input" for="keyInput">Сдвиг</label>
+        <input type="number" id="keyInput">
+    </div> 
+    <div class="button_area">
+        <button id="encrypt-button">Зашифровать сообщение</button>
+        <div class="button_upload">
+            <button id="load_file_button">Загрузить из файл</button>
+            <input type="file" style="display: none;" id="upload_file_input"> 
+        </div>
+    </div>
+</div>
+
+<div class="result_area">
+    <div class="encrypted_message_area">
+        <label for="encryptedMessageOutput">Зашифрованное сообщение</label>
+        <output id="encryptedMessageOutput"></output>
+    </div>
+    <div class="decrypted_message_area">
+        <label for="decryptedMessageOutput">Расшифрованное сообщение</label>
+        <output id="decryptedMessageOutput"></output>
+    </div>
+</div>
+
+<button id="get_cryptoanalysis">Провести криптоанализ</button>
+
+<div class="cryptanalysis_info_area">
+    <div class="monogramm_alphabet_area">
+        <h2 class="title_output">Монограмма словаря</h2> 
+        <div class="monogramAlphabet_area" id ="monogramAlphabetTable"></div>
+    </div>
+    
+    <div class="cryptanalysisCaesarCipher_area">
+        <h2 class="title_output">Результат криптоанализа</h2>
+        <div class="cryptanalysis_area" id="cryptanalysisTable"></div>
+    </div>
+</div>
+
+<div class="cryptoanalysis_result">
+    <div class="cryptanalysis_key">
+        <label for="cryptanalysis-key" class="title_input">Ключ:</label>
+        <output id="cryptanalysis-key"></p>
+    </div>
+    <div class="cryptanalysis_message">
+        <label for="cryptanalysis-decrypted_message" class="title_input">Расшифрованное сообщение:</label>
+        <output id="cryptanalysis-decrypted_message"></p>
+    </div>
+</div>
+
+<div class="button_dowload">
+    <button id="dowload_cryptanalysis_button">Загрузить криптоанализ в файл</button>
+</div>

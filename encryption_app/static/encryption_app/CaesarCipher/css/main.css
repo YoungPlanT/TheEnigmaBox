@@ -1,0 +1,132 @@
+.title {
+    text-align: center;
+    margin-bottom: 30px;           
+    color: var(--accent-color);      
+    font-size: 2.5em;               
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); 
+}
+
+.title_output {
+    margin-bottom: 15px;
+    font-size: 1.3em;               
+    color: var(--text-color);
+}
+
+.input_area {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.message_input_area,
+.key_input_area {
+    display: flex;
+    flex-direction: column;
+}
+
+.button_area {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.title_input {
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+input[type="text"],
+input[type="number"] {
+    padding: 12px;                 
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1em;
+    color: var(--text-color);
+    transition: border-color 0.3s ease; 
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+    border-color: var(--accent-color);
+    outline: none;              
+}
+
+button {
+    padding: 14px 20px;           
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; 
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background-color: #43A047;   
+    transform: translateY(-2px);   
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.result_area,
+.cryptoanalysis_result {
+    margin-bottom: 30px;
+}
+
+.encrypted_message_area,
+.decrypted_message_area {
+    margin-bottom: 15px;
+}
+
+.cryptanalysis_info_area {
+    display: flex;                  
+    justify-content: space-around;   
+    margin-top: 30px;
+    margin-bottom: 30px;                  
+}
+
+.monogramm_alphabet_area,
+.cryptanalysisCaesarCipher_area {
+    background-color: #fff;        
+    border-radius: 12px;            
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;                    
+    width: calc((100% - 140px) / 2);  
+}
+
+th {
+    text-align: left;
+    vertical-align: middle;
+    width: 140px;
+}
+
+.best-key-row {
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+output {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    display: block;
+    min-height: 24px;
+    font-size: 1em;
+    color: var(--text-color);
+    background-color: #f9f9f9;
+}
+
+#get_cryptoanalysis {
+    background-color: #2196F3;  
+}
+
+#get_cryptoanalysis:hover {
+    background-color: #1976D2;   
+}

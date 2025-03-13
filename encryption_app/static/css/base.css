@@ -1,0 +1,50 @@
+@import url('./menu.css');
+
+:root {
+    --background-color: #f5f5f5;         /* Светло-серый фон */
+    --text-color: #333;                 /* Темно-серый текст */
+    --accent-color: #4CAF50;           /* Зеленый акцент */
+    --menu-background-color: #e0e0e0;   /* Светло-серый фон меню */
+    --menu-hover-color: #d0d0d0;      /* Цвет при наведении на меню */
+    --menu-selected-color: #43A047;    /* Более темный зеленый для выбранного пункта */
+}
+
+body {
+    font-family: 'Arial', sans-serif;    
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;                 
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 25% 75%;
+    column-gap: 30px;                
+    grid-template-areas: "left right";
+    padding: 30px;         
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); 
+    border-radius: 12px;         
+    margin: 30px auto;         
+    max-width: 1200px;           
+}
+
+.column-left {
+    grid-area: left;
+}
+
+.column_right {
+    grid-area: right;
+}
+
+.column {
+    padding: 0 15px;
+}
+
+h2 {
+    color: var(--accent-color);  
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 10px;
+}

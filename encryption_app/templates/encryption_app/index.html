@@ -1,0 +1,35 @@
+{% extends "encryption_app/base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/base.css' %}?v=1">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="column colun-left menu">
+        <h2>Выберите метод шифрования:</h2>
+
+        <div class="method-list">
+            <div class="method-item" data-method="CaesarCipher">Шифр Цезаря</div>
+            <div class="method-item" data-method="GronsfeldCipher">Шифр сложной замены Гронсфельда</div>
+            <div class="method-item" data-method="AnotherMethod">Другой метод</div>
+        </div>
+
+        <h2>Выеберите словарь:</h2>
+        <div class="alphabet-list">
+            <div class="alphabet-item" data-method="russian">Русский</div>
+            <div class="alphabet-item" data-method="english">Английский</div>
+        </div>
+    </div>
+
+    <div class="column column_right algorithm_area" id="algorithm_content_area">
+
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/base.js' %}?v=1"></script>
+<script src="{% static 'js/menu_style.js' %}?v=1 %}" type="module"></script>
+{% endblock %}
