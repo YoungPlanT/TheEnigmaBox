@@ -45,24 +45,24 @@ document.addEventListener('DOMContentLoaded', function() {
     function loadContentOrFallback(method) {
         if (!method) {
             loadContent(
-                `/static/encryption_app/main_page/placeholder/placeholder.html`,
-                `/static/encryption_app/main_page/placeholder/css/style.css`,
+                `/static/encryption_app/fallback/placeholder/placeholder.html`,
+                `/static/encryption_app/fallback/placeholder/css/style.css`,
                 null,
             );
             return;
         }
         if (in_development.includes(method)) {
             loadContent(
-                `/static/encryption_app/main_page/on_work/on_work.html`,
-                `/static/encryption_app/main_page/on_work/css/style.css`,
+                `/static/encryption_app/fallback/on_work/on_work.html`,
+                `/static/encryption_app/fallback/on_work/css/style.css`,
                 null,
             );
             return;
         }
         loadContent(
-            `/static/encryption_app/${method}/${method}_page.html`,
-            `/static/encryption_app/${method}/css/main.css`,
-            `/static/encryption_app/${method}/js/${method}_main.js`,
+            `/static/encryption_app/encryption_page/encryption_page.html`,
+            `/static/encryption_app/encryption_page/css/main.css`,
+            `/static/encryption_app/encryption_page/js/encryptionPage_main.js`,
         );
     }
 
