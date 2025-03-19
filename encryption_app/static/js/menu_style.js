@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const alphabetList = document.querySelector('.alphabet-list');
     let selectedItem_methodItem = null;
     let selectedItem_alphabetItem = null;
+
     
     methodList.addEventListener('click', function(event) {
         const target = event.target;

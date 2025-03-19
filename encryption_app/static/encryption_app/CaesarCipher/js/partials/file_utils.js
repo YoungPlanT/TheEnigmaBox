@@ -1,5 +1,6 @@
 function placeholder() {
     console.log('DowloadCryptanalysis: this function is currently under development.');
+    alert('DowloadCryptanalysis: this function is currently under development.');
 }
 
 function fileReaderFunction(event) {

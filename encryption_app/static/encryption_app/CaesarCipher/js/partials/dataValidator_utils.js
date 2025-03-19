@@ -6,15 +6,22 @@ var alphabetName = null;
 var intKey = null;
 
 export function validatorData(message, key) {
+    if (!alphabetSelectCheck()) {
+        console.log("Select the language (alphabet) for encoding!")
+        return false;
+    }
+
     if (!validateInput(message, key)) {
         return false;
     }
 
     if (!validateMessage(message)) {
+        console.log("Error: validate message error");
         return false;
     }
 
     if (!validateKey(key)) {
+        console.log("Error: validate key error")
         return false;
     }
 
@@ -32,11 +39,6 @@ function validateInput(message, key) {
         return false;
     }
 
-    if (!alphabetSelectCheck()) {
-        console.log("Select the language (alphabet) for encoding!")
-        return false;
-    }
-
     return true;
 }
 
@@ -45,7 +47,7 @@ function alphabetSelectCheck() {
 
     alphabetItems.forEach(item => {
         if (item.classList.contains('selected')) {
-            alphabetName = item.dataset.method;
+            alphabetName = item.dataset.alphabet;
         }
     })
     
@@ -63,6 +65,8 @@ function validateMessage(message) {
             return false;
         }
 
+        console.log(alphabetName);
+
         if (alphabetName === "russian") {
             processedMessage = processedMessage.replace(/[ё]/g, 'е').replace(/[Ё]/g, 'Е');
             regex = /^[А-Яа-я\s]+$/;
@@ -72,7 +76,7 @@ function validateMessage(message) {
             console.error("Unknown alphabet:", alphabetName);
             return false;
         }
-
+        
         return regex.test(processedMessage);
     } catch (error) {
         console.error("Error during message validation:", error);

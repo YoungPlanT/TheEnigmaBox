@@ -11,7 +11,7 @@ function encrypt() {
 
     alphabetItems.forEach(item => {
         if (item.classList.contains('selected')) {
-            alphabetName = item.dataset.method;
+            alphabetName = item.dataset.alphabet;
         }
     })
 
@@ -54,7 +54,7 @@ async function fetchEncryptedMessage(message, key, alphabetName, encryptedMessag
 }
 
 export function initCeasarCipher() {
-    const encryptButton = document.getElementById('encrypt-button');
+    const encryptButton = document.getElementById('algorith-start-button');
 
     if (encryptButton) {
         encryptButton.addEventListener('click', function (event) {
@@ -62,6 +62,6 @@ export function initCeasarCipher() {
             encrypt();
         });
     } else {
-        console.error('encrypt-button not found');
+        console.error('algorith-start-button not found');
     }
 }
