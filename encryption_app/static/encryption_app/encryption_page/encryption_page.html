@@ -1,5 +1,5 @@
 <header>
-    <h1 class='title'>Шифр Цезаря</h1>
+    <h1 class='title' id='title_method'></h1>
 
     <div class='crypto-menu'>
         <div class='operation-item' data-operation='encrypt'>Зашифровать</div>
@@ -16,9 +16,10 @@
         <div class='key_input_area'>
             <label class='title_input' for='keyInput'>Сдвиг</label>
             <input type='number' id='keyInput'>
+            
         </div> 
         <div class='button_area'>
-            <button id='algorith-start-button'>Зашифровать сообщение</button>
+            <button id='algorith-start-button'></button>
             <div class='button_upload'>
                 <button id='load_file_button'>Загрузить из файл</button>
                 <input type='file' style='display: none;' id='upload_file_input'> 

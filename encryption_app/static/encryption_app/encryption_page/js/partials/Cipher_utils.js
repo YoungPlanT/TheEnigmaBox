@@ -1,4 +1,4 @@
-import { validatorData } from "./dataValidator_utils.js";
+import { Validator } from "./dataValidator_utils.js";
 
 function encrypt() {
     const messageInput = document.getElementById('messageInput');
@@ -17,8 +17,9 @@ function encrypt() {
 
     const message = messageInput.value;
     const key = keyInput.value;
+    const validator = new Validator();
 
-    if (validatorData(message, key)) {
+    if (validator.validateData(message, key)) {
         fetchEncryptedMessage(message, key, alphabetName, encryptedMessageOutput, decryptedMessageOutput);
     } else {
         console.log("Validator: error!")
