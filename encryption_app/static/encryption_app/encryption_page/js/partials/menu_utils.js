@@ -5,7 +5,7 @@ const textOnButton = {
 
 class PageUpdateStrategy {
     constructor(elementId) {
-        this.element = document.getElementById(elementId);
+        this.elementId = elementId;
     }
 
     apply() {
@@ -20,9 +20,16 @@ class AddClassStrategy extends PageUpdateStrategy {
     }
 
     apply() {
-        if (this.element) {
-            this.element.classList.add(this.className);
-        }
+        const self = this; // Сохраняем ссылку на `this`
+        requestAnimationFrame(function() {
+            let element = document.getElementById(self.elementId);
+            // console.log(`AddClassStrategy: Adding class "${self.className}" to element with ID "${self.elementId}"`);
+            if (element) {
+                element.classList.add(self.className);
+            } else {
+                console.warn(`Element with ID "${self.elementId}" not found for AddClassStrategy`);
+            }
+        });
     }
 }
 
@@ -33,9 +40,16 @@ class RemoveClassStrategy extends PageUpdateStrategy {
     }
 
     apply() {
-        if (this.element) {
-            this.element.classList.remove(this.className);
-        }
+        const self = this;
+        requestAnimationFrame(function() {
+            let element = document.getElementById(self.elementId);
+            // console.log(`RemoveClassStrategy: Remove class "${self.className}" from element with ID "${self.elementId}"`);
+            if (element) {
+                element.classList.remove(self.className);
+            } else {
+                console.warn(`Element with ID "${self.elementId}" not found for RemoveClassStrategy`);
+            }
+        });
     }
 }
 
@@ -46,8 +60,12 @@ class SetButtonTextStrategy extends PageUpdateStrategy {
     }
 
     apply() {
-        if (this.element) {
-            this.element.textContent = this.text;
+        let element = document.getElementById(this.elementId);
+        if (element) {
+            element.textContent = this.text;
+        }
+        else {
+            console.warn(`Element with ID "${this.elementId}" not found for AddClassStrategy`);
         }
     }
 }
@@ -59,12 +77,10 @@ const updateManager = {
             new AddClassStrategy('footer_area', 'available'),
             new RemoveClassStrategy('main_area', 'available'),
             new RemoveClassStrategy('encryptedMessageArea', 'available'),
-            new RemoveClassStrategy('encryptedmessageArea', 'available'),
             new SetButtonTextStrategy('algorith-start-button', textOnButton['encrypt']),
         ],
         'decrypt': [
             new AddClassStrategy('encryptedMessageArea', 'available'),
-            new AddClassStrategy('encryptedmessageArea', 'available'),
             new RemoveClassStrategy('main_area', 'available'),
             new RemoveClassStrategy('decryptedMessageArea', 'available'),
             new RemoveClassStrategy('footer_area', 'available'),
@@ -86,26 +102,24 @@ const updateManager = {
     }
 };
 
-function select_element_in_cryptoMenu() {
-    const cryptoMenu = document.querySelector('.crypto-menu');
-    let selectedItem_operation = null;
 
-    cryptoMenu.addEventListener('click', function(event) {
-        let target = event.target;
+export function initMenuUtils() {
+    const algorithmContentArea = document.getElementById('algorithm_content_area');
+    if (!algorithmContentArea) {
+        console.warn('#algorithm_content_area not found, skipping initialization');
+        return;
+    }
+
+    algorithmContentArea.addEventListener('click', function(event) {
+        const target = event.target;
 
         if (target.classList.contains('operation-item')) {
-            if (selectedItem_operation) {
-                selectedItem_operation.classList.remove('selected');
-            }
+            // const operationItems = algorithmContentArea.querySelectorAll('.operation-item');
+            // operationItems.forEach(item => item.classList.remove('selected'));
             target.classList.add('selected');
-            selectedItem_operation = target;
 
-            const operation = selectedItem_operation.dataset.operation;
+            const operation = target.dataset.operation;
             updateManager.applyStrategies(operation);
         }
     });
-}
-
-export function initMenuUtils() {
-    select_element_in_cryptoMenu();
 }

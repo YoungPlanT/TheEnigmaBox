@@ -2,27 +2,32 @@ const contentConfig = {
     '': {
         html: `/static/encryption_app/fallback/placeholder/placeholder.html`,
         css: `/static/encryption_app/fallback/placeholder/css/style.css`,
-        js: null
+        js: null,
+        count: 0,
     },
     'CaesarCipher': {
         html: `/static/encryption_app/encryption_page/encryption_page.html`,
         css: `/static/encryption_app/encryption_page/css/main.css`,
         js: `/static/encryption_app/encryption_page/js/encryptionPage_main.js`,
+        count: 0,
     },
     'GronsfeldCipher': {
         html: `/static/encryption_app/fallback/on_work/on_work.html`,
         css: `/static/encryption_app/fallback/on_work/css/style.css`,
         js: null,
+        count: 0,
     },
     'inDevelop': {
         html: `/static/encryption_app/fallback/on_work/on_work.html`,
         css: `/static/encryption_app/fallback/on_work/css/style.css`,
         js: null,
+        count: 0,
     },
     'default': {
         html: `/static/encryption_app/fallback/on_work/on_work.html`,
         css: `/static/encryption_app/fallback/on_work/css/style.css`,
         js: null,
+        count: 0,
     }
 }
 
@@ -36,7 +41,7 @@ class ContentLoader {
         return url.includes('?') ? `${url}&v=${this.version}` : `${url}?v=${this.version}`;
     }
 
-    async loadContent(path_html, path_css, path_js) {
+    async loadContent(path_html, path_css, path_js, count) {
         try {
             const content_area = document.getElementById('algorithm_content_area');
 
@@ -57,8 +62,10 @@ class ContentLoader {
 
             this.loadCSS(path_css);
 
-            if (path_js) {
-                await this.loadJS(path_js);
+            if (count === 0) {
+                if (path_js) {
+                    await this.loadJS(path_js);
+                }
             }
         } catch (error) {
             console.error('Error loading content: ', error);
@@ -107,7 +114,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function loadContentOrFallback(method) {
         const config = contentConfig[method] || contentConfig['default'];
-        contentLoader.loadContent(config.html, config.css, config.js);
+        contentLoader.loadContent(config.html, config.css, config.js, config.count);
+        
+        if (contentConfig[method].count === 0) {
+            contentConfig[method].count += 1;
+        }
     }
 
     methodItems.forEach(items => {
