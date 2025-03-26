@@ -27,7 +27,8 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); 
     border-radius: 12px;         
     margin: 30px auto;         
-    max-width: 1200px;           
+    max-width: 1200px;   
+    height: min(100%, 700px);        
 }
 
 .column-left {

@@ -9,5 +9,3 @@ export function init() {
     initCryptoanalysisCaesarEncryptedMessage();
     initMenuUtils();
 }
-
-// Проблема в том, что меняется содержимое страницы, а сами методы отсались, из-за чего новое != прошлому

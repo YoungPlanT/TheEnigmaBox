@@ -7,16 +7,23 @@
     </div>
 </header>
 
-<main class='available' id='main_area'>
+<main class='disabled_element' id='main_area'>
     <div class='input_area'>
         <div class='message_input_area'>
             <label class='title_input' for='messageInput'>Введите сообщение:</label>
             <input type='text' id='messageInput'>
         </div>
         <div class='key_input_area'>
-            <label class='title_input' for='keyInput'>Сдвиг</label>
-            <input type='number' id='keyInput'>
-            
+            <div class="wrapper">
+                <label class='title_input ' for='keyInput'>Сдвиг</label>
+                <input type='number' id='keyInput'>
+            </div>
+            <div class="toggle-wrapper" id="toggleWrapper">
+                <label for="keyInputToggle" class="switch vertical">
+                    <input type="checkbox" name="" id="keyInputToggle">
+                    <span class="slider round"></span>
+                </label>
+            </div>
         </div> 
         <div class='button_area'>
             <button id='algorith-start-button'></button>
@@ -39,9 +46,9 @@
     </div>
 </main>
 
-<footer class='available' id='footer_area'>
+<footer class='disabled_element' id='footer_area'>
     <div class='button_get_cryptanalysis'>
-        <button id='get_cryptoanalysis'>Провести криптоанализ</button>
+        <button id='get_cryptoanalysis' class='disabled_element'>Провести криптоанализ</button>
     </div>
 
     <div class='cryptanalysis_info_area'>
